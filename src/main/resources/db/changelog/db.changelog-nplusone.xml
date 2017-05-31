@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1" author="Stanislav Dobrovolschi">
+        <sql>
+            create sequence scrum_master_seq start with 1 increment by 1;
+        </sql>
+        <comment>Created scrum_master sequence.</comment>
+    </changeSet>
+
+    <changeSet id="2" author="Stanislav Dobrovolschi">
+        <sql>
+            create table SCRUM_MASTER (
+            ID bigint default scrum_master_seq.nextval,
+            USERNAME varchar(20) not null,
+            constraint PK_SCRUM_MASTER primary key (id),
+            constraint UQ_SCRUM_MASTER_USERNAME unique (username)
+            );
+        </sql>
+        <comment>Created scrum_master table.</comment>
+    </changeSet>
+
+    <changeSet id="3" author="Stanislav Dobrovolschi">
+        <sql>
+            create sequence team_seq start with 1 increment by 1;
+        </sql>
+        <comment>Created team sequence.</comment>
+    </changeSet>
+
+    <changeSet id="4" author="Stanislav Dobrovolschi">
+        <sql>
+            create table TEAM (
+                ID bigint default team_seq.nextval,
+                NAME varchar(20) not null,
+                SCRUM_MASTER_ID bigint not null,
+                constraint PK_TEAM primary key (id),
+                constraint UQ_TEAM_NAME unique (name),
+                constraint FK_TEAM_SCRUM_MASTER_ID foreign key (scrum_master_id) references scrum_master (id)
+            );
+        </sql>
+        <comment>Created team table.</comment>
+    </changeSet>
+
+    <changeSet id="5" author="Stanislav Dobrovolschi">
+        <sql>
+            create table TEAM_MEMBER (
+                TEAM_ID bigint not null,
+                USERNAME varchar(20) not null,
+                constraint PK_TEAM_MEMBER primary key (team_id, username),
+                constraint FK_TEAM_MEMBER_TEAM_ID foreign key (team_id) references team (id) on delete cascade
+            );
+        </sql>
+        <comment>Created member table.</comment>
+    </changeSet>
+</databaseChangeLog>

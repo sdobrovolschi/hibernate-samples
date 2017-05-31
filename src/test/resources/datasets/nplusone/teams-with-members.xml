@@ -1,0 +1,23 @@
+<dataset>
+
+    <SCRUM_MASTER ID="1" USERNAME="username1" />
+    <SCRUM_MASTER ID="2" USERNAME="username2" />
+    <SCRUM_MASTER ID="3" USERNAME="username3" />
+
+    <TEAM ID="1" NAME="Team1" SCRUM_MASTER_ID="1" />
+
+    <TEAM_MEMBER TEAM_ID="1" USERNAME="username4" />
+    <TEAM_MEMBER TEAM_ID="1" USERNAME="username5" />
+    <TEAM_MEMBER TEAM_ID="1" USERNAME="username6" />
+
+    <TEAM ID="2" NAME="Team2" SCRUM_MASTER_ID="2" />
+
+    <TEAM_MEMBER TEAM_ID="2" USERNAME="username6" />
+    <TEAM_MEMBER TEAM_ID="2" USERNAME="username7" />
+
+    <TEAM ID="3" NAME="Team3" SCRUM_MASTER_ID="3" />
+
+    <TEAM_MEMBER TEAM_ID="3" USERNAME="username7" />
+    <TEAM_MEMBER TEAM_ID="3" USERNAME="username8" />
+
+</dataset>

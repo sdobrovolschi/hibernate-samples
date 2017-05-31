@@ -23,6 +23,8 @@
         <db-util.version>0.0.1</db-util.version>
         <jmh.version>1.19</jmh.version>
         <rider.version>1.1.0</rider.version>
+        <datasource-proxy.version>1.4.1</datasource-proxy.version>
+        <datasource-assert.version>master-372f076966-1</datasource-assert.version>
     </properties>
 
     <dependencies>
@@ -66,10 +68,22 @@
             <version>${rider.version}</version>
             <scope>test</scope>
         </dependency>
-        <dependency>
+       <!-- <dependency>
             <groupId>com.vladmihalcea</groupId>
             <artifactId>db-util</artifactId>
             <version>${db-util.version}</version>
+            <scope>test</scope>
+        </dependency>-->
+        <dependency>
+            <groupId>net.ttddyy</groupId>
+            <artifactId>datasource-proxy</artifactId>
+            <version>${datasource-proxy.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.ttddyy</groupId>
+            <artifactId>datasource-assert</artifactId>
+            <version>${datasource-assert.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -85,5 +99,12 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
+    <repositories>
+        <repository>
+            <id>jitpack.io</id>
+            <url>https://jitpack.io</url>
+        </repository>
+    </repositories>
 
 </project>
