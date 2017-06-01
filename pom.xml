@@ -25,6 +25,7 @@
         <rider.version>1.1.0</rider.version>
         <datasource-proxy.version>1.4.1</datasource-proxy.version>
         <datasource-assert.version>master-372f076966-1</datasource-assert.version>
+        <commons-lang3.version>3.5</commons-lang3.version>
     </properties>
 
     <dependencies>
@@ -55,6 +56,12 @@
             <groupId>p6spy</groupId>
             <artifactId>p6spy</artifactId>
             <version>${p6spy.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>${commons-lang3.version}</version>
         </dependency>
 
         <dependency>

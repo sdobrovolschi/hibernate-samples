@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="6" author="Stanislav Dobrovolschi">
+        <sql>
+            create sequence client_seq start with 1 increment by 1;
+        </sql>
+        <comment>Created client sequence.</comment>
+    </changeSet>
+
+    <changeSet id="7" author="Stanislav Dobrovolschi">
+        <sql>
+            create table CLIENT (
+                ID bigint default client_seq.nextval,
+                NAME varchar(20) not null,
+                constraint PK_CLIENT primary key (id),
+                constraint UQ_CLIENT_NAME unique (name)
+            );
+        </sql>
+        <comment>Created client table.</comment>
+    </changeSet>
+
+    <changeSet id="8" author="Stanislav Dobrovolschi">
+        <sql>
+            create sequence contract_seq start with 1 increment by 1;
+        </sql>
+        <comment>Created contract sequence.</comment>
+    </changeSet>
+
+    <changeSet id="9" author="Stanislav Dobrovolschi">
+        <sql>
+            create table CONTRACT (
+                ID bigint default contract_seq.nextval,
+                NUMBER varchar(8) not null,
+                CLIENT_ID bigint not null,
+                constraint PK_CONTRACT primary key (id),
+                constraint UQ_CONTRACT_NUMBER unique (number),
+                constraint FK_CONTRACT_CLIENT_ID foreign key (client_id) references client (id)
+            );
+        </sql>
+        <comment>Created contract table.</comment>
+    </changeSet>
+
+    <changeSet id="10" author="Stanislav Dobrovolschi">
+        <sql>
+            create sequence project_seq start with 1 increment by 1;
+        </sql>
+        <comment>Created project sequence.</comment>
+    </changeSet>
+
+    <changeSet id="11" author="Stanislav Dobrovolschi">
+        <sql>
+            create table PROJECT (
+                ID bigint default project_seq.nextval,
+                CODE varchar(8) not null,
+                CLIENT_ID bigint not null,
+                constraint PK_PROJECT primary key (id),
+                constraint UQ_PROJECT_CODE unique (code),
+                constraint FK_PROJECT_CLIENT_ID foreign key (client_id) references client (id)
+            );
+        </sql>
+        <comment>Created project table.</comment>
+    </changeSet>
+</databaseChangeLog>
