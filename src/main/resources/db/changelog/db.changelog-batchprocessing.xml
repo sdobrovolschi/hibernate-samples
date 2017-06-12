@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="12" author="Stanislav Dobrovolschi">
+        <sql>
+            create sequence client2_seq start with 1 increment by 1;
+        </sql>
+        <comment>Created client2 sequence.</comment>
+    </changeSet>
+
+    <changeSet id="13" author="Stanislav Dobrovolschi">
+        <sql>
+            create table CLIENT2 (
+                ID bigint default client2_seq.nextval,
+                NAME varchar(20) not null,
+                constraint PK_CLIENT2 primary key (id),
+                constraint UQ_CLIENT2_NAME unique (name)
+            );
+        </sql>
+        <comment>Created client2 table.</comment>
+    </changeSet>
+
+    <changeSet id="14" author="Stanislav Dobrovolschi">
+        <sql>
+            create table PROJECT2 (
+                CODE varchar(8) not null,
+                NAME varchar(255) not null,
+                VERSION int not null,
+                constraint PK_PROJECT2 primary key (code)
+            );
+        </sql>
+        <comment>Created project2 table.</comment>
+    </changeSet>
+
+    <changeSet id="15" author="Stanislav Dobrovolschi">
+        <sql>
+            create table PROJECT_REVENUE (
+                PROJECT_CODE varchar(8) not null,
+                YEAR_MONTH int not null,
+                AMOUNT number(19, 2) not null,
+                CURRENCY varchar(3) not null,
+                constraint PK_PROJECT_REVENUE primary key (project_code, year_month),
+                constraint FK_PROJECT_REVENUE_PROJECT_CODE foreign key (project_code) references project2 (code) on delete cascade
+            );
+        </sql>
+        <comment>Created project_revenue table.</comment>
+    </changeSet>
+</databaseChangeLog>

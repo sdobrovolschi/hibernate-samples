@@ -1,0 +1,11 @@
+<dataset>
+
+    <CLIENT2 ID="1" NAME="Client1" />
+    <CLIENT2 ID="2" NAME="Client2" />
+    <CLIENT2 ID="3" NAME="Client3" />
+
+    <PROJECT2 CODE="AB325687" NAME="Project1" VERSION="1"/>
+    <PROJECT2 CODE="BC325687" NAME="Project2" VERSION="1"/>
+    <PROJECT2 CODE="CD325687" NAME="Project3" VERSION="1"/>
+
+</dataset>
