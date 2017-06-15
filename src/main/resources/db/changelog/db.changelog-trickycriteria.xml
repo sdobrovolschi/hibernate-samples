@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1" author="Stanislav Dobrovolschi">
+        <sql>
+            create table PROJECT3 (
+                CODE varchar(8) not null,
+                MANAGER_USERNAME varchar(255) not null,
+                BUDGET numeric(19, 2) not null,
+                START date not null,
+                END date not null,
+                constraint PK_PROJECT3 primary key (code)
+            );
+        </sql>
+        <comment>Created project3 table.</comment>
+    </changeSet>
+</databaseChangeLog>
