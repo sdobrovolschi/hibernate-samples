@@ -68,4 +68,9 @@ public class JpaTeamRepository implements TeamRepository {
         entityManager.persist(team);
         entityManager.flush();
     }
+
+    @Override
+    public Team get(Long id) {
+        return entityManager.find(Team.class, id);
+    }
 }

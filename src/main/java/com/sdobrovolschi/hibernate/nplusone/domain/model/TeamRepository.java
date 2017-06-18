@@ -20,4 +20,6 @@ public interface TeamRepository {
     List<Team> getAll(int offset, int pageSize);
 
     void add(Team team);
+
+    Team get(Long id);
 }
