@@ -2,7 +2,7 @@ package com.sdobrovolschi.hibernate.cartesianproduct.infrastructure.persistence.
 
 import com.sdobrovolschi.hibernate.cartesianproduct.domain.model.Client;
 import com.sdobrovolschi.hibernate.cartesianproduct.domain.model.ClientRepository;
-import org.hibernate.jpa.QueryHints;
+import org.hibernate.annotations.QueryHints;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -28,7 +28,14 @@ public class JpaClientRepository implements ClientRepository {
                 "   left join fetch c.projects";
 
         return entityManager.createQuery(query, Client.class)
-                .setHint(QueryHints.HINT_PASS_DISTINCT_THROUGH, false)
+                .setHint(QueryHints.PASS_DISTINCT_THROUGH, false)
+                .getResultList();
+    }
+
+    @Override
+    public List<Client> getAll() {
+        return entityManager.createQuery("from Client", Client.class)
+//                .setHint(QueryHints.READ_ONLY, true)
                 .getResultList();
     }
 }

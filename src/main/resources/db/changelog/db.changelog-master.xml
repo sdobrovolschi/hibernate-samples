@@ -9,5 +9,6 @@
     <include file="db.changelog-cartesianproduct.xml" relativeToChangelogFile="true"/>
     <include file="db.changelog-batchprocessing.xml" relativeToChangelogFile="true"/>
     <include file="db.changelog-trickycriteria.xml" relativeToChangelogFile="true"/>
+    <!--<include file="db.data.xml" relativeToChangelogFile="true"/>-->
 
 </databaseChangeLog>

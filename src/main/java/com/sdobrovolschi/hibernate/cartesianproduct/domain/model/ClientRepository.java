@@ -8,4 +8,6 @@ import java.util.List;
 public interface ClientRepository {
 
     List<Client> getAllWithContractsAndProjects();
+
+    List<Client> getAll();
 }

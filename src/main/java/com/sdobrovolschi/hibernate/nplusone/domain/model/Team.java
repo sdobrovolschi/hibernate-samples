@@ -82,6 +82,10 @@ public class Team {
         return Collections.unmodifiableSet(members);
     }
 
+    public void addMember() {
+        members.add(new Member(id, "asdadas"));
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) {

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                            http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+
+    <changeSet id="1" author="Stanislav Dobrovolschi">
+        <sql>
+            insert into client(id, name) values (1, 'Client1');
+            insert into client(id, name) values (2, 'Client2');
+            insert into client(id, name) values (3, 'Client3');
+            insert into client(id, name) values (4, 'Client4');
+            insert into client(id, name) values (5, 'Client5');
+            insert into client(id, name) values (6, 'Client6');
+            insert into client(id, name) values (7, 'Client7');
+            insert into client(id, name) values (8, 'Client8');
+            insert into client(id, name) values (9, 'Client9');
+            insert into client(id, name) values (10, 'Client10');
+        </sql>
+        <comment>Created client sequence.</comment>
+    </changeSet>
+</databaseChangeLog>
