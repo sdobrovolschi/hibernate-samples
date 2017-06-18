@@ -70,6 +70,10 @@ public class Team {
         return name;
     }
 
+    public void changeName(String name) {
+        this.name = name;
+    }
+
     public String getScrumMasterUsername() {
         return scrumMaster.getUsername();
     }
